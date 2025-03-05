@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
+#include "../include/help.h"
 #include "../include/update.h"
 
-int matchCommand(char *cmd);
+int runCommand(char *cmd);
 
 int main(int argc, char *argv[]) {
 	if (argc < 2) {
@@ -12,7 +14,7 @@ int main(int argc, char *argv[]) {
 		return 0; 
 	}	
 
-	int returnValueMatchCMD = matchCommand(argv[1]);
+	int returnValueMatchCMD = runCommand(argv[1]);
 	if (returnValueMatchCMD != 0) { 
 		return returnValueMatchCMD; 
 	}
@@ -20,36 +22,17 @@ int main(int argc, char *argv[]) {
 	return 0; 
 }
 
-int runCommand(int commandCode) { 
-	switch (commandCode) { 
-		case 0:
-			printf("TODO: Implement -h.\n");
-			return 0;
-		case 1: 
-			return updateSys();
-		default:
-			printf("Command not yet created in switch case of runCommand.");
-			return 2; 
-	}
+int TODOSMTH() {
+	printf("TODO: Implement this one.\n");
+	return 0;
 }
 
-int matchCommand(char *cmd) {
-	int COMMAND_COUNT = 2;
-	char commands_list[][51] = {"-h", "update-system"};
+int runCommand(char *cmd) {
+	if (strcmp(cmd, "--help") == 0 || strcmp(cmd, "-h") == 0)
+		return getHelp();
+	if (strcmp(cmd, "update-system") == 0)
+		return updateSys();
 	
-	bool commandFound = false;
-	for (int i = 0; i < COMMAND_COUNT; i++) {
-		if (strcmp(commands_list[i], cmd) == 0) {
-			runCommand(i);
-			commandFound = true;
-			break;
-		}
-	}
-
-	if (!commandFound) {
-		printf("Command not found use -h for help.\n");
-		return 1;
-	}
-
-	return 0;
+	printf("Command not yet created in runCommand.");
+	return 2; 
 }
