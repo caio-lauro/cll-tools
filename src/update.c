@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/update.h"
+#include "../include/colors.h"
 
 int updateSys() {
-	printf("Starting system updates.\n");
+	printf(BOLD "Starting system updates." NORMAL "\n");
 	int updateReturn = system("dnf update -y");
 
-	printf("\nStarting flatpak updates.\n");
+	printf(BOLD "\nStarting flatpak updates." NORMAL "\n");
 	int flatpakReturn = system("flatpak update -y");
 
 	return updateReturn || flatpakReturn;
