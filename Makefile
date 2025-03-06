@@ -37,7 +37,7 @@ clean:
 prefix ?= /usr/local
 binpath = $(prefix)/bin
 install: cll-tools
-	install -m 755 cll-tools $(binpath)
+	sudo install -m 755 cll-tools $(binpath)
 
 uninstall:
-	rm -f $(binpath)/cll-tools
+	sudo rm -f $(binpath)/cll-tools
