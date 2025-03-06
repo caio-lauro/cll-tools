@@ -5,7 +5,7 @@
 
 int updateSys() {
 	printf(BOLD "Starting system updates." NORMAL "\n");
-	int updateReturn = system("dnf update -y");
+	int updateReturn = system("sudo dnf update -y");
 
 	printf(BOLD "\nStarting flatpak updates." NORMAL "\n");
 	int flatpakReturn = system("flatpak update -y");
