@@ -16,9 +16,9 @@ int getHelp() {
 }
 
 void printCommandsHelp() {
-	printf("\t-h, --help\t\t");
+	printf("\t-h, --help\t\t\t");
 	printf("Provides help for the user.\n");
 
-	printf("\tupdate-system\t\t");
-	printf("Updates the sytem when needed, use with sudo.\n");
+	printf("\tupdate-system, system-update\t");
+	printf("Updates the sytem when needed.\n");
 }
