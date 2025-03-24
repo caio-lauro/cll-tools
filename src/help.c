@@ -4,12 +4,12 @@ void printCommandsHelp();
 
 int getHelp() {
 	printf(BOLD "Usage:" 
-		NORMAL "\n\tcll-tools [OPTION] [ARGS]\n");
+		NORMAL "\n\tcll-tools [OPTIONS] COMMAND\n");
 
 	printf(BOLD "Description:" 
 		NORMAL "\n\tcll-tools is a program designed and mantained by Caio Lauro to provide assistance in various tasks he does.\n");
 
-	printf(BOLD "Software Commands:" NORMAL "\n");
+	printf(BOLD "Software Options and Commands:" NORMAL "\n");
 	printCommandsHelp();
 
 	return 0;
