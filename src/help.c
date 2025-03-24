@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "../include/help.h"
-#include "../include/colors.h"
 
 void printCommandsHelp();
 

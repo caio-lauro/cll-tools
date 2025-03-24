@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "../include/error.h"
 
 int commandNotFound() {
