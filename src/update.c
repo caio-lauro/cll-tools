@@ -1,5 +1,4 @@
 #include "../include/update.h"
-#include "../include/colors.h"
 
 int updateSys() {
 	printf(BOLD "Starting system updates." NORMAL "\n");
