@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "../include/options.h"
 #include "../include/error.h"
 #include "../include/help.h"
 #include "../include/update.h"
@@ -27,13 +28,20 @@ int TODOSMTH() {
 }
 
 int runCommand(int argc, char *argv[]) {
-	char *cmd = argv[1];
-
-	if (strcmp(cmd, "--help") == 0 || strcmp(cmd, "-h") == 0) {
-		if (argc != 2)
-			return throwError(2);
-		return getHelp();
+	int opt; 
+	while ((opt = getopt_long(argc, argv, "h", long_options, NULL)) != -1) {
+		switch (opt) {
+			case 'h':
+				if (argc != 2)
+					return throwError(2);
+				return getHelp();
+			default:
+				return throwError(2);
+		}
 	}
+
+	char *cmd = argv[optind];
+
 	if (strcmp(cmd, "update-system") == 0 || strcmp(cmd, "system-update") == 0) {
 		if (argc != 2)
 			return throwError(2);
